@@ -1,42 +1,97 @@
+/* QuickBooker - App Principal */
 #root {
-  max-width: 1280px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.App__container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header flotante con gradiente */
+.App__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px clamp(20px, 5vw, 48px);
+  backdrop-filter: blur(16px) saturate(180%);
+  background: linear-gradient(135deg, 
+    rgba(30, 58, 138, 0.95) 0%, 
+    rgba(59, 130, 246, 0.92) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 24px -8px rgba(30, 58, 138, 0.4);
+}
+
+.App__header h1 {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.App__subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 400;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .App__subtitle {
+    display: block;
+  }
+}
+
+/* Layout principal de dos columnas */
+.App__mainLayout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 88px clamp(16px, 3vw, 32px) 32px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 1024px) {
+  .App__mainLayout {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 24px;
+    padding: 96px clamp(24px, 4vw, 48px) 40px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* Calendario ocupa 65% del ancho */
+  .App__col--calendar {
+    flex: 0 0 65%;
+    display: flex;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  /* Servicios ocupan 35% del ancho */
+  .App__col--services {
+    flex: 0 0 35%;
+    display: flex;
+    overflow: hidden;
   }
 }
 
-.card {
-  padding: 2em;
+@media (min-width: 1400px) {
+  .App__col--calendar {
+    flex: 0 0 68%;
+  }
+  
+  .App__col--services {
+    flex: 0 0 32%;
+  }
 }
 
-.read-the-docs {
-  color: #888;
-}

@@ -1,0 +1,220 @@
+/* Galería de Servicios - Diseño Compacto */
+.services {
+  flex: 1;
+  padding: clamp(20px, 3vw, 32px);
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 
+    0 8px 32px -8px rgba(30, 58, 138, 0.12),
+    0 0 0 1px rgba(30, 58, 138, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  max-height: calc(100vh - 140px);
+  overflow: hidden;
+}
+
+.services__header {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--neutral-100);
+}
+
+.services__header h2 {
+  color: var(--primary);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.services__header p {
+  color: var(--neutral-600);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Grid de servicios sin scroll */
+.services__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--neutral-300) transparent;
+}
+
+.services__grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.services__grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.services__grid::-webkit-scrollbar-thumb {
+  background: var(--neutral-300);
+  border-radius: 10px;
+}
+
+.services__grid::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-400);
+}
+
+/* Tarjeta de servicio compacta */
+.service-card {
+  background: linear-gradient(135deg, var(--neutral-50) 0%, #ffffff 100%);
+  border: 2px solid var(--neutral-200);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  border-color: var(--primary-light);
+  transform: translateX(4px);
+  box-shadow: 
+    0 8px 20px -4px rgba(30, 58, 138, 0.15),
+    0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+/* Imagen compacta del servicio */
+.service-card__image {
+  flex: 0 0 90px;
+  height: 90px;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-card__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, transparent 100%);
+}
+
+.service-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-card__image img {
+  transform: scale(1.08);
+}
+
+/* Contenido del servicio */
+.service-card__body {
+  flex: 1;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-card__title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.service-card__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--neutral-900);
+  line-height: 1.25;
+}
+
+.service-card__price {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.service-card__desc {
+  color: var(--neutral-600);
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.service-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.service-card__btn {
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.service-card__btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+}
+
+.service-card__btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive para tablets y móviles */
+@media (max-width: 1024px) {
+  .services {
+    max-height: none;
+  }
+  
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    overflow-y: visible;
+  }
+  
+  .service-card {
+    flex-direction: column;
+  }
+  
+  .service-card__image {
+    flex: 0 0 140px;
+    height: 140px;
+    width: 100%;
+  }
+  
+  .service-card__body {
+    padding: 14px 16px;
+  }
+  
+  .service-card__title {
+    font-size: 1.05rem;
+  }
+  
+  .service-card__desc {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}

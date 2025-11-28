@@ -38,17 +38,28 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.App__subtitle {
-  color: rgba(255, 255, 255, 0.9);
+.App__loginBtn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 8px 20px;
   font-size: 0.9rem;
-  font-weight: 400;
-  display: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
 }
 
-@media (min-width: 640px) {
-  .App__subtitle {
-    display: block;
-  }
+.App__loginBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.App__loginBtn:active {
+  transform: translateY(0);
 }
 
 /* Layout principal de dos columnas */

@@ -25,7 +25,9 @@ export default function Calendar() {
   const nextMonth = () => setCursor(new Date(year, month + 1, 1));
   const prevMonth = () => setCursor(new Date(year, month - 1, 1));
 
-  const monthLabel = cursor.toLocaleDateString('es-MX', { month: 'long', year: 'numeric' });
+  // Generar etiqueta de mes con "de" en minúsculas siempre
+  const monthName = cursor.toLocaleDateString('es-MX', { month: 'long' });
+  const monthLabel = `${monthName.charAt(0).toUpperCase() + monthName.slice(1)} de ${year}`;
 
   return (
     <section className="calendar">

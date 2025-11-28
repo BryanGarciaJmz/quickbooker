@@ -28,7 +28,6 @@
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
   font-weight: 700;
   color: var(--primary);
-  text-transform: capitalize;
   letter-spacing: -0.3px;
 }
 
@@ -98,25 +97,16 @@
   position: relative;
   cursor: pointer;
   color: var(--neutral-800);
-  transition: all 0.2s ease;
+  /* sin animaciones en las celdas */
 }
 
 .calendar__cell span {
   z-index: 1;
 }
 
-.calendar__cell:hover:not(.calendar__cell--blank) {
-  background: var(--primary-lighter);
-  border-color: var(--primary-light);
-  transform: translateY(-2px);
-  box-shadow: 
-    0 8px 16px -4px rgba(30, 58, 138, 0.15),
-    0 0 0 3px rgba(59, 130, 246, 0.1);
-}
+/* sin efectos hover en las celdas */
 
-.calendar__cell:active:not(.calendar__cell--blank) {
-  transform: translateY(0);
-}
+/* sin efectos active en las celdas */
 
 /* Celda vacía */
 .calendar__cell--blank {
@@ -136,12 +126,7 @@
     0 0 0 3px rgba(30, 58, 138, 0.1);
 }
 
-.calendar__cell--today:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 8px 20px rgba(30, 58, 138, 0.35),
-    0 0 0 4px rgba(30, 58, 138, 0.15);
-}
+/* sin hover extra para el día actual */
 
 /* Responsive para tablets */
 @media (max-width: 1024px) {

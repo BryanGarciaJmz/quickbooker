@@ -5,14 +5,14 @@ export default function ServicesGallery() {
   return (
     <section className="services">
       <header className="services__header">
-        <h2>Servicios disponibles</h2>
-        <p>Explora opciones de forma visual y rápida.</p>
+        <h2>Atracciones turísticas</h2>
+        <p>Explora puntos de interés de Guadalajara y planea tu visita.</p>
       </header>
       <div className="services__grid" role="list">
         {services.map((s) => (
           <article key={s.id} className="service-card" role="listitem">
             <div className="service-card__image">
-              <img src={s.imageUrl} alt={`${s.name} - imagen del servicio`} loading="lazy" />
+              <img src={s.imageUrl} alt={`${s.name} - imagen de la atracción`} loading="lazy" />
             </div>
             <div className="service-card__body">
               <div className="service-card__title-row">

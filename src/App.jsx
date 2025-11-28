@@ -10,7 +10,7 @@ function App() {
     <div className="App__container">
       <header className="App__header">
         <h1>QuickBooker</h1>
-        <p className="App__subtitle">Reserva visual y clara de servicios</p>
+        <button className="App__loginBtn" type="button">Iniciar sesión</button>
       </header>
       <div className="App__mainLayout">
         <div className="App__col App__col--calendar">

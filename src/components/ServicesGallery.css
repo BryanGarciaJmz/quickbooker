@@ -70,31 +70,22 @@
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  transition: all 0.2s ease;
+  align-items: stretch;
+  min-height: 110px;
   cursor: pointer;
 }
 
-.service-card:hover {
-  border-color: var(--primary-light);
-  transform: translateX(4px);
-  box-shadow: 
-    0 8px 20px -4px rgba(30, 58, 138, 0.15),
-    0 0 0 3px rgba(59, 130, 246, 0.08);
-}
+/* sin efecto hover en la tarjeta */
 
 /* Imagen compacta del servicio */
 .service-card__image {
-  flex: 0 0 90px;
-  height: 90px;
+  flex: 0 0 110px;
   overflow: hidden;
   position: relative;
-}
-
-.service-card__image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, transparent 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--neutral-100);
 }
 
 .service-card__image img {
@@ -105,9 +96,7 @@
   transition: transform 0.3s ease;
 }
 
-.service-card:hover .service-card__image img {
-  transform: scale(1.08);
-}
+/* sin zoom de imagen en hover */
 
 /* Contenido del servicio */
 .service-card__body {
@@ -199,9 +188,10 @@
   }
   
   .service-card__image {
-    flex: 0 0 140px;
-    height: 140px;
+  flex: 0 0 180px;
+  height: 180px;
     width: 100%;
+  line-height: 0;
   }
   
   .service-card__body {
